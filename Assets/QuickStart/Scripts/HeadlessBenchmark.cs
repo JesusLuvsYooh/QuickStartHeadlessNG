@@ -102,19 +102,21 @@ namespace Mirror.HeadlessBenchmark
             NetworkClient client = clientGo.GetComponent<NetworkClient>();
             clientGo.GetComponent<NetworkSceneManager>().client = client;
             ClientObjectManager objectManager = clientGo.GetComponent<ClientObjectManager>();
+
+            GetComponent<PlayerSpawner>().client = client;
+
+            objectManager.RegisterPrefab(MonsterPrefab.GetComponent<NetworkIdentity>());
+            objectManager.RegisterPrefab(PlayerPrefab.GetComponent<NetworkIdentity>());
+
             objectManager.networkSceneManager = clientGo.GetComponent<NetworkSceneManager>();
             objectManager.client = client;
             objectManager.Start();
             client.Transport = transport;
 
-          //  objectManager.RegisterPrefab(MonsterPrefab.GetComponent<NetworkIdentity>());
-            objectManager.RegisterPrefab(PlayerPrefab.GetComponent<NetworkIdentity>());
-
             try
             {
                 await client.ConnectAsync(networkAddress);
                 client.Send(new AddPlayerMessage());
-
             }
             catch (Exception ex)
             {
@@ -200,6 +202,7 @@ namespace Mirror.HeadlessBenchmark
                 {
                     newTransport.Port = ushort.Parse(port);
                 }
+
                 networkManager.server.transport = newTransport;
                 networkManager.client.Transport = newTransport;
 
@@ -210,46 +213,48 @@ namespace Mirror.HeadlessBenchmark
 
                 kcpTransport = newTransport;
             }
-            
+
             if (transport != null && transport.Equals("enet"))
-             {
-                 IgnoranceNG newTransport = networkManager.gameObject.AddComponent<IgnoranceNG>();
+            {
+                IgnoranceNG newTransport = networkManager.gameObject.AddComponent<IgnoranceNG>();
 
-                  //Try to apply port if exists and needed by transport.
-                 if (!string.IsNullOrEmpty(port))
-                 {
-                     newTransport.Config.CommunicationPort = ushort.Parse(port);
-                 }
+                //Try to apply port if exists and needed by transport.
+                if (!string.IsNullOrEmpty(port))
+                {
+                    newTransport.Config.CommunicationPort = ushort.Parse(port);
+                }
 
-                  networkManager.server.transport = newTransport;
-                 networkManager.client.Transport = newTransport;
-             }
+                networkManager.server.transport = newTransport;
+                networkManager.client.Transport = newTransport;
+            }
 
-              if (transport != null && transport.Equals("libuv2k"))
-             {
-                 KcpTransport newTransport = networkManager.gameObject.AddComponent<KcpTransport>();
+            if (transport != null && transport.Equals("libuv2k"))
+            {
+                KcpTransport newTransport = networkManager.gameObject.AddComponent<KcpTransport>();
 
-                  //Try to apply port if exists and needed by transport.
-                 if (!string.IsNullOrEmpty(port))
-                 {
-                     newTransport.Port = ushort.Parse(port);
-                 }
-                 networkManager.server.transport = newTransport;
-                 networkManager.client.Transport = newTransport;
-             }
+                //Try to apply port if exists and needed by transport.
+                if (!string.IsNullOrEmpty(port))
+                {
+                    newTransport.Port = ushort.Parse(port);
+                }
 
-              if (transport != null && transport.Equals("litelib"))
-             {
-                 KcpTransport newTransport = networkManager.gameObject.AddComponent<KcpTransport>();
+                networkManager.server.transport = newTransport;
+                networkManager.client.Transport = newTransport;
+            }
 
-                  //Try to apply port if exists and needed by transport.
-                 if (!string.IsNullOrEmpty(port))
-                 {
-                     newTransport.Port = ushort.Parse(port);
-                 }
-                 networkManager.server.transport = newTransport;
-                 networkManager.client.Transport = newTransport;
-             }
+            if (transport != null && transport.Equals("litelib"))
+            {
+                KcpTransport newTransport = networkManager.gameObject.AddComponent<KcpTransport>();
+
+                //Try to apply port if exists and needed by transport.
+                if (!string.IsNullOrEmpty(port))
+                {
+                    newTransport.Port = ushort.Parse(port);
+                }
+
+                networkManager.server.transport = newTransport;
+                networkManager.client.Transport = newTransport;
+            }
 
         }
 
