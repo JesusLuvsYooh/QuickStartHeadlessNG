@@ -14,7 +14,7 @@
 Inside terminal/cmd console, add the complete line.
       
 Example of server arguements:
-C:\Users\location\QuickStartHeadless -transport kcp -server -port 3333 -frameRate 15
+C:\Users\location\QuickStartHeadless -transport kcp -server -port 3333 -frameRate 15 -traffic 0
 
 Example of client arguements"
 C:\Users\location\QuickStartHeadless -transport kcp -client 1 -address 127.0.0.1 -port 3333 -frameRate 15 -traffic 3

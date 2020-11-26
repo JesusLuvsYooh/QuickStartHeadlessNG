@@ -233,7 +233,7 @@ namespace QuickStart
             else if (staticC.traffic == 4)
             {
                 trafficType = "FPS";
-                autoTurnAmount = UnityEngine.Random.Range(0.1f, 1.5f);
+                autoTurnAmount = UnityEngine.Random.Range(0.1f, 2.5f);
                 autoMoveAmount = UnityEngine.Random.Range(0.05f, 0.2f);
                 InvokeRepeating(nameof(AutoRepeatingMessage), 1, 0.75f);
                 InvokeRepeating(nameof(AutoRepeatingShoot), 1, 0.6f);
