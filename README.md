@@ -11,22 +11,25 @@
 
 # Running headless server or client
 
-Inside terminal/cmd console, add the complete line, type 0 for default or none.
-
-File Location - Client/Sever - frame rate - host IP - host port - traffic
+Inside terminal/cmd console, add the complete line.
       
 Example of server arguements:
-C:\Users\localion\QuickStartHeadless s 15 0 0 0
+C:\Users\location\QuickStartHeadless -transport kcp -server -port 3333 -frameRate 15
 
 Example of client arguements"
-C:\Users\localion\QuickStartHeadless c 15 123.123.123.123 0 0 3
+C:\Users\location\QuickStartHeadless -transport kcp -client 1 -address 127.0.0.1 -port 3333 -frameRate 15 -traffic 3
 
 # Traffic explanation
 - 0 = none
-- 1 = light (card game)  (some cmd/rpcs)
-- 2 = active (social game)  (a few cmd/rpcs + player movement) 
-- 3 = heavy (mmo)  (many cmd/rpcs + player movement) 
-- 4 = frequent (fps)  (lots of cmd/rpcs + player movement) 
+(just initial player setup such as name and colour)
+- 1 = light (card game)
+(traffic: 0 + some cmd/rpcs every few seconds)
+- 2 = active (social game)
+(traffic: 1 increased + player rotation only + rigidbody sphere projectile) 
+- 3 = heavy (mmo)
+(traffic: 2 increased + player movement) 
+- 4 = frequent (fps)
+(traffic: 3 increased) 
 
 # Other
-Port argument section for headless has been temporary disabled, whilst doing the many transport tests.
+

@@ -78,6 +78,8 @@ namespace QuickStart
             CmdSetupPlayer("Player" + UnityEngine.Random.Range(100, 999), new Color(UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f)));
 
             SetupAutoTraffic();
+
+            sceneScript.SetupLocalScene();
         }
         
         
@@ -232,7 +234,7 @@ namespace QuickStart
             {
                 trafficType = "FPS";
                 autoTurnAmount = UnityEngine.Random.Range(0.1f, 1.5f);
-                autoMoveAmount = UnityEngine.Random.Range(0.1f, 0.2f);
+                autoMoveAmount = UnityEngine.Random.Range(0.05f, 0.2f);
                 InvokeRepeating(nameof(AutoRepeatingMessage), 1, 0.75f);
                 InvokeRepeating(nameof(AutoRepeatingShoot), 1, 0.6f);
             }

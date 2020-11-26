@@ -207,7 +207,7 @@ namespace Mirror.HeadlessBenchmark
                 networkManager.client.Transport = newTransport;
 
                 newTransport.HashCashBits = 15;
-                newTransport.SendWindowSize = 256;
+                newTransport.SendWindowSize = 8192; //256
                 newTransport.ReceiveWindowSize = 8192;
                 newTransport.delayMode = KcpDelayMode.Fast3;
 

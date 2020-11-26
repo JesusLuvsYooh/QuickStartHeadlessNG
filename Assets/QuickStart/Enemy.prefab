@@ -78,7 +78,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -103,7 +102,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!102 &586567716229708266
 TextMesh:
   serializedVersion: 3
@@ -215,7 +213,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -240,7 +237,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &7183915099183568174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +313,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -342,7 +337,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &5852454960023369705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,9 +371,9 @@ GameObject:
   - component: {fileID: 8350735139352559518}
   - component: {fileID: 3947211009378791460}
   - component: {fileID: 3942240777599574071}
-  - component: {fileID: 3991366079353510690}
+  - component: {fileID: 8584931297034836159}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: Enemy
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,7 +467,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -498,7 +491,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &8350735139352559518
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -537,7 +529,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3991366079353510690
+--- !u!114 &8584931297034836159
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -546,11 +538,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 4163948661500666956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 344ae85e10a646559f164d8122b5b300, type: 3}
+  m_Script: {fileID: 11500000, guid: e49c1d1955ca64328917ce9072698da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  playerNameText: {fileID: 586567716229708266}
+  floatingInfo: {fileID: 586567715015259846}
+  trafficType: none
+  playerName: 
+  playerColor: {r: 1, g: 1, b: 1, a: 1}
+  weaponArray:
+  - {fileID: 0}
+  - {fileID: 3645533546805844296}
+  - {fileID: 3071992959580186151}
+  activeWeaponSynced: 1
 --- !u!1 &8560594230535644539
 GameObject:
   m_ObjectHideFlags: 0

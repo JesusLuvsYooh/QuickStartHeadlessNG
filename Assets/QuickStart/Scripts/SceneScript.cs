@@ -66,5 +66,12 @@ namespace QuickStart
             playersArray = GameObject.FindGameObjectsWithTag("Player");
             canvasPlayerCount.text = "Players: " + playersArray.Length;
         }
+
+        public void SetupLocalScene()
+        {
+            var display = sceneReference.netPing.GetComponent<NetworkPingDisplay>();
+            display.Client = NetIdentity.Client;
+            display.gameObject.SetActive(true);
+        }
     }
 }
